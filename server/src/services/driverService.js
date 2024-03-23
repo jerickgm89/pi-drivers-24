@@ -1,27 +1,27 @@
 const axios = require('axios')
 const { formatSendResponse } = require('../utils/formatSendResponse')
 
-const getAllDriversServices = async () => {
-    const apiFetch = await axios.get('http://localhost:5000/drivers')
+const api = "http://localhost:5000/drivers"
 
-    //Formateando la respuesta de apiFetch
+const getAllDriversServices = async () => {
+    const apiFetch = await axios.get(api)
+
     const allDriversApi = apiFetch.data.map(driver => formatSendResponse(driver))
     
     return allDriversApi
 
 }
 const getDriverByIdServices = async (id) => {
-    const apiFetch = await axios.get(`http://localhost:5000/drivers/${id}`)
+    const apiFetch = await axios.get(`${api}/${id}`)
 
-    //Formateando la respuesta de apiFetch
     const driverApi = formatSendResponse(apiFetch.data)
 
     return driverApi
 }
 const getDriverByNameServices = async (name) => {
-    const apiFetch = await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)
+    
+    const apiFetch = await axios.get(`${api}?name.forename=${name}`)
 
-    //Formateando la respuesta de apiFetch
     const driverApi = apiFetch.data.map(driver => formatSendResponse(driver))
 
     return driverApi
