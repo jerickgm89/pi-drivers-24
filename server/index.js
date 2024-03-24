@@ -1,10 +1,21 @@
-const axios = require("axios");
 const server = require("./src/server");
 const { conn } = require('./src/db.js');
+const { checkTeamsDB } = require('./src/repositories/teamRepository');
 const PORT = 3001;
 
-conn.sync({ force: true }).then(() => {
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-})
-}).catch(error => console.error(error))
+try {
+  server.listen(PORT, async () => {
+    console.log(`Server listening on port ${PORT}`);
+    await conn.sync({ force: true });
+    console.log('Database connected');
+
+    await checkTeamsDB();
+
+
+  });
+} catch ( error ) {
+  console.log(error);
+
+}
+
+
