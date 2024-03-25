@@ -1,6 +1,6 @@
 const server = require("./src/server");
 const { conn } = require('./src/db.js');
-const { checkTeamsDB } = require('./src/repositories/teamRepository');
+const { checkTeamsDB } = require('./src/services/teamService');
 const PORT = 3001;
 
 try {

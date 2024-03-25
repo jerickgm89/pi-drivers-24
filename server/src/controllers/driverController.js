@@ -44,9 +44,28 @@ const getDriverById = async (req, res) => {
     }
 }
 
+const createDriver = async (req, res) => {
+    try {
+        const { name, surname, description, image, nationality, team, date } = req.body
+
+        const driver = await createDriverServices({
+            name, surname, description, image, nationality, team, date
+        })
+
+        res
+            .status(200)
+            .json(driver)
+    }
+    catch (error) {
+        res
+            .status(500)
+            .json({ message: error.message })
+    }
+}
 
 module.exports = {
     getDrivers,
-    getDriverById
+    getDriverById,
+    createDriver
 }
     

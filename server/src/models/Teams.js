@@ -6,20 +6,16 @@ module.exports = (sequelize) => {
   // defino el modelo
  sequelize.define('Teams', {
         id: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.UUID,
+          defaultValue: DataTypes.UUIDV4,
           allowNull: false,
-          primaryKey: true,
-          autoIncrement: true,
-        },
-        apiId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          unique: true,
+          primaryKey: true
         },
         name: {
           type: DataTypes.STRING,
           allowNull: false,
-        }
+          unique: true,
+        },
     },
     {
         timestamps: false,

@@ -2,11 +2,14 @@
 
 const formatSendResponse = (driver) => {
 
-    const imageUrl = " Hola la imagen por defecto va aqui"
+    const imageUrl = "https://cdn.pixabay.com/photo/2023/08/12/08/46/ai-generated-8185136_1280.png"
 
     let sendResponse = {};
 
+    // Formateo de los drivers si vienen de la API o base de datos
+
     if (!driver.name.forename) {
+        let formattedTeams = driver.teams.map(team => team.name)
         sendResponse = {
             id: driver.id,
 			name: driver.name,
@@ -14,9 +17,9 @@ const formatSendResponse = (driver) => {
 			description: driver.description || '',
 			nationality: driver.nationality,
 			image: driver.image,
-			// teams: formattedTeams,
+			teams: formattedTeams,
 			date: driver.date,
-			// isFromApi: false,
+			isApi: false,
         }
     } else {
 
@@ -29,7 +32,7 @@ const formatSendResponse = (driver) => {
             image: driver.image.url,
             teams: driver.teams,
             date: driver.dob,
-            isFromApi: true,
+            isApi: true,
         }
     }
 
