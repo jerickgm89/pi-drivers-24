@@ -1,5 +1,5 @@
-const axios = require('axios');
 const { getAllTeams, createTeam } = require('../repositories/teamRepository');
+const { fetchApi } = require('../utils/fetchApi')
 
 const getAllTeamsServices = async () => {
     const teams = await getAllTeams();
@@ -7,29 +7,37 @@ const getAllTeamsServices = async () => {
 }
 
 const createTeamServices = async (team) => {
-    const newTeam = await createTeam(team);
+    
+    const teamData = {
+        name: team.name
+    }
+    const newTeam = await createTeam(teamData);
     return newTeam;
 }
 
+
+//Obtener los equipos de la API y guardarlos en la base de datos
+
 const getTeamsFromApi = async () => {
     try {
-        const dataApi = await axios.get('http://localhost:5000/drivers');
-        const drivers = dataApi.data;
-        const teams = drivers.flatMap((driver) => {
+        const drivers = await fetchApi();
+        const teams = drivers.map((driver) => {
             const splittedTeams = driver.teams?.split(',') || [];
             return splittedTeams;
         });
 
         const uniqueTeams = teams
+            .flat()
             .map((value) => value.trim())
-            .filter((value, index, self) => self.indexOf(value) === index)
+            .filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            })
             .sort();
 
         const teamsInDb = await Promise.all(
-            uniqueTeams.map((name) => createTeam(name))
+            uniqueTeams.map((name) => createTeamServices({ name }))
         );
-
-        return teamsInDb; 
+        return teamsInDb;         
         
     }
     catch (error) {

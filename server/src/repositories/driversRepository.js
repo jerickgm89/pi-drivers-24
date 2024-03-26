@@ -52,21 +52,59 @@ const getDriverByName = async (name) => {
     return driver;
 }
 
-const createDriver = async (driver) => {
-    const newDriver = await Driver.create({
-        name: driver.name,
-        surname: driver.surname,
-        description: driver.description,
-        image: driver.image,
-        nationality: driver.nationality,
-        date: driver.date
+const createDriver = async (driverData, team) => {
+    const newDriver = await Driver.create({driverData});
+    
+    const teams = team.team.split(',');
+    const teamsInDb = await Promise.all(
+        teams.map((name) => Teams.findOrCreate({
+            where: { name: name.trim() }
+        }))
+    );
+    await newDriver.setTeams(teamsInDb.map((team) => team[0]));
+
+    const driver = await Driver.findOne({
+        where: {
+            id: newDriver.id
+        },
+        include: {
+            model: Teams,
+            attributes: ['name'],
+            through: {
+                attributes: []
+            }
+        }
     });
-    return newDriver;
+
+    const teamsResponse = driver.Teams.map((team) => team.name).join(', ');
+
+    return { ...driver.dataValues, teams: teamsResponse }
+}
+
+const updateDriver = async (id, driverData) => {
+    const updatedDriver = await Driver.update(
+        driverData, { where: {
+                 id: id
+               }
+        }
+    );
+    return updatedDriver;
+}
+
+const deleteDriver = async (id) => {
+    const deletedDriver = await Driver.destroy({
+        where: {
+            id: id
+        }
+    });
+    return deletedDriver;
 }
 
 module.exports = {
     getAllDrivers,
     getDriverById,
     getDriverByName,
-    createDriver
+    createDriver,
+    updateDriver,
+    deleteDriver
 }

@@ -2,7 +2,8 @@ const { Router } = require('express');
 
 const { 
     getDrivers, 
-    getDriverById
+    getDriverById,
+    createDriver
 } = require('../controllers/driverController');
 
 const routerDriver = Router();
@@ -10,8 +11,7 @@ const routerDriver = Router();
 
 routerDriver.get('/', getDrivers);
 routerDriver.get('/:id', getDriverById);
-
-// routerDriver.post('/', createDriver);
+routerDriver.post('/', createDriver);
 // routerDriver.put('/:id', updateDriver);
 // routerDriver.delete('/:id', deleteDriver);
 
