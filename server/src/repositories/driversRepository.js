@@ -52,33 +52,9 @@ const getDriverByName = async (name) => {
     return driver;
 }
 
-const createDriver = async (driverData, team) => {
-    const newDriver = await Driver.create({driverData});
-    
-    const teams = team.team.split(',');
-    const teamsInDb = await Promise.all(
-        teams.map((name) => Teams.findOrCreate({
-            where: { name: name.trim() }
-        }))
-    );
-    await newDriver.setTeams(teamsInDb.map((team) => team[0]));
-
-    const driver = await Driver.findOne({
-        where: {
-            id: newDriver.id
-        },
-        include: {
-            model: Teams,
-            attributes: ['name'],
-            through: {
-                attributes: []
-            }
-        }
-    });
-
-    const teamsResponse = driver.Teams.map((team) => team.name).join(', ');
-
-    return { ...driver.dataValues, teams: teamsResponse }
+const createDriver = async (driverData) => {
+    const driver = await Driver.create(driverData);
+    return driver;
 }
 
 const updateDriver = async (id, driverData) => {

@@ -1,6 +1,7 @@
 const { formatSendResponse } = require('../utils/formatSendResponse')
 const { fetchApi, fetchApiById, fetchApiByName } = require('../utils/fetchApi')
 const { getAllDrivers, getDriverById, getDriverByName, createDriver, updateDriver, deleteDriver } = require('../repositories/driversRepository')
+const { getTeamByName, createTeam } = require('../repositories/teamRepository')
 
 
 const getAllDriversServices = async () => {
@@ -46,18 +47,33 @@ const getDriverByNameServices = async (name) => {
 }
 
 // Servicio para crear driver en la base de datos
-const createDriverServices = async (driver, team) => {
-    let driverData = {
-        name: driver.name,
-        surname: driver.surname,
-        description: driver.description,
-        image: driver.image,
-        nationality: driver.nationality,
-        date: driver.date
-    }
-    const newDriver = await createDriver(driverData, team)
+const createDriverServices = async (driverData) => {
 
-    return newDriver
+    const newDriver = await createDriver({
+        name: driverData.name,
+        surname: driverData.surname,
+        description: driverData.description,
+        image: driverData.image,
+        nationality: driverData.nationality,
+        date: driverData.date,
+    })
+
+    const teamsArray = driverData.team.split(',');
+
+    for (const newTeams of teamsArray) {
+        let team = await getTeamByName(newTeams.trim());
+
+        if (!team) {
+            team = await createTeam({ name: newTeams.trim() });
+        }
+
+        await newDriver.addTeam(team);
+    }
+
+    const driverWithTeam = await getDriverById(newDriver.id);
+
+    const teams = driverWithTeam.Teams.map((team) => team.name).join(', ');
+    return { ...driverWithTeam.dataValues, Teams: teams };
 
 }
 
@@ -69,14 +85,13 @@ const updateDriverServices = async (id, driver) => {
         throw new Error('Driver not found')
     }   
 
-    let driverData = {
+    const updatedDriver = await updateDriver(id, {
         name: driver.name,
         surname: driver.surname,
         description: driver.description,
         image: driver.image,
         nationality: driver.nationality,
-    }
-    const updatedDriver = await updateDriver(id, driverData)
+    })
 
     return updatedDriver
 }

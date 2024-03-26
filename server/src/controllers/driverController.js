@@ -3,6 +3,7 @@ const {
     getDriverByIdServices, 
     getDriverByNameServices,
     createDriverServices,
+    updateDriverServices,
 } = require('../services/driverService')
 
 
@@ -47,11 +48,17 @@ const getDriverById = async (req, res) => {
 
 const createDriver = async (req, res) => {
     try {
-        const { name, surname, description, image, nationality, team, date } = req.body
+        const { name, surname, description, image, nationality, team, date } = req.body        
+
+        if(!name || !surname || !description || !image || !nationality || !team || !date) {
+            return res
+                .status(400)
+                .json({ message: 'Todos los campos son requeridos' })
+        }
 
         const driver = await createDriverServices({
-            name, surname, description, image, nationality, date
-        }, { team })
+            name, surname, description, image, nationality, team, date
+        })
 
         res
             .status(200)

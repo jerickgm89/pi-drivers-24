@@ -1,5 +1,4 @@
 
-
 const formatSendResponse = (driver) => {
 
     const imageUrl = "https://cdn.pixabay.com/photo/2023/08/12/08/46/ai-generated-8185136_1280.png"
@@ -9,7 +8,7 @@ const formatSendResponse = (driver) => {
     // Formateo de los drivers si vienen de la API o base de datos
 
     if (!driver.name.forename) {
-        let formattedTeams = driver.teams.map(team => team.name)
+        const formattedTeams = driver.Teams.map(team => team.name).join(', ')
         sendResponse = {
             id: driver.id,
 			name: driver.name,

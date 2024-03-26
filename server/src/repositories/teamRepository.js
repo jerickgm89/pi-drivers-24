@@ -7,6 +7,17 @@ const getAllTeams = async () => {
         return teams;
 }
 
+// Buscar si el team por nombre usando findOne
+const getTeamByName = async (name) => {
+    const team = await Teams.findOne({
+        where: {
+            name: name
+        }
+    });
+    return team;
+}
+
+
 const createTeam = async (team) => {
     const newTeam = await Teams.create(team);
     return newTeam;
@@ -33,6 +44,7 @@ const deleteTeam = async (id) => {
 
 module.exports = {
     getAllTeams,
+    getTeamByName,
     createTeam,
     updateTeam,
     deleteTeam
