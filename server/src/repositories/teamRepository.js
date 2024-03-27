@@ -17,13 +17,14 @@ const getTeamByName = async (name) => {
     return team;
 }
 
-
+// Crear un nuevo team
 const createTeam = async (team) => {
     const newTeam = await Teams.create(team);
     return newTeam;
    
 }
 
+// Actualizar un team
 const updateTeam = async (team) => {
     const updatedTeam = await Teams.update({ name: team.name }, {
         where: {
@@ -33,6 +34,7 @@ const updateTeam = async (team) => {
     return updatedTeam;
 }
 
+// Eliminar un team
 const deleteTeam = async (id) => {
     const deletedTeam = await Teams.destroy({
         where: {

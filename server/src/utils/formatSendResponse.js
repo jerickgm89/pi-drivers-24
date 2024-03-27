@@ -1,4 +1,4 @@
-
+// Desc: Formatea la respuesta de los drivers para enviarla al cliente
 const formatSendResponse = (driver) => {
 
     const imageUrl = "https://cdn.pixabay.com/photo/2023/08/12/08/46/ai-generated-8185136_1280.png"

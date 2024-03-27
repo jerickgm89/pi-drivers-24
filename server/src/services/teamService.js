@@ -1,11 +1,13 @@
 const { getAllTeams, createTeam } = require('../repositories/teamRepository');
 const { fetchApi } = require('../utils/fetchApi')
 
+// Obtener todos los equipos
 const getAllTeamsServices = async () => {
     const teams = await getAllTeams();
     return teams;
 }
 
+// Crear un nuevo equipo
 const createTeamServices = async (team) => {
     
     const teamData = {
@@ -16,8 +18,8 @@ const createTeamServices = async (team) => {
 }
 
 
-//Obtener los equipos de la API y guardarlos en la base de datos
-
+// Funcion para obtener los equipos de la API
+// Se obtienen los equipos de los drivers y se guardan en la tabla de Teams
 const getTeamsFromApi = async () => {
     try {
         const drivers = await fetchApi();
@@ -45,7 +47,8 @@ const getTeamsFromApi = async () => {
     }
 }
 
-//Verificar si la tabla Teams este vacio
+// Verifica si hay datos en la tabla de Teams
+// Si no hay, llama a la función getTeamsFromApi
 const checkTeamsDB = async () => {
     try {
         const teams = await getAllTeams();      

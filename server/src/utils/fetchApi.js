@@ -1,7 +1,7 @@
-//Peticion de datos a la API
 const axios = require('axios');
 const API = 'http://localhost:5000/drivers';
 
+// Peticion a la API de drivers
 const fetchApi = async () => {
     try {
         const dataApi = await axios.get(API);
@@ -12,7 +12,7 @@ const fetchApi = async () => {
     }
 }
 
-// por Id
+// Petición por id
 const fetchApiById = async (id) => {
     try {
         const dataApi = await axios.get(`${API}/${id}`);
@@ -23,7 +23,7 @@ const fetchApiById = async (id) => {
     }
 }
 
-// Por nombre
+// Petición por nombre
 const fetchApiByName = async (name) => {
     try {
         const dataApi = await axios.get(`${API}?name.forename=${name}`);

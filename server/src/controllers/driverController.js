@@ -6,7 +6,9 @@ const {
     updateDriverServices,
 } = require('../services/driverService')
 
-
+// Controlador para obtener todos los drivers de la base de datos
+// Si se envía un query con el nombre del driver, se buscará por nombre
+// Si no se envía un query, se obtendrán todos los drivers
 const getDrivers = async (req, res) => {
     try {
         const { name } = req.query
@@ -31,6 +33,8 @@ const getDrivers = async (req, res) => {
     }
     
 }
+
+// Controlador para obtener un driver por su id
 const getDriverById = async (req, res) => {
     try {
         const { id } = req.params
@@ -46,6 +50,9 @@ const getDriverById = async (req, res) => {
     }
 }
 
+// Controlador para crear un nuevo driver en la base de datos
+// Recibe los datos del driver en el body de la petición
+// Si no se envía alguno de los datos requeridos, se retorna un error 500
 const createDriver = async (req, res) => {
     try {
         const { name, surname, description, image, nationality, team, date } = req.body        
@@ -71,6 +78,9 @@ const createDriver = async (req, res) => {
     }
 }
 
+// Controlador para actualizar un driver en la base de datos
+// Recibe el id del driver a actualizar y los datos a modificar
+// Si no se envía alguno de los datos requeridos, se retorna un error 500
 const updateDriver = async (req, res) => {
     try {
         const { id } = req.params
@@ -91,6 +101,8 @@ const updateDriver = async (req, res) => {
     }
 }
 
+// Controlador para eliminar un driver de la base de datos
+// Recibe el id del driver a eliminar
 const deleteDriver = async (req, res) => {
     try {
         const { id } = req.params

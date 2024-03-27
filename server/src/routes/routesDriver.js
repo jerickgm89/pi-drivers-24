@@ -8,7 +8,7 @@ const {
 
 const routerDriver = Router();
 
-
+// Rutas para drivers
 routerDriver.get('/', getDrivers);
 routerDriver.get('/:id', getDriverById);
 routerDriver.post('/', createDriver);

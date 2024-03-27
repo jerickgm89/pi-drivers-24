@@ -1,6 +1,7 @@
 const { Op } = require('sequelize');
 const { Driver, Teams } = require('../../src/db');
 
+// Buscando todos los drivers en la base de datos
 const getAllDrivers = async () => {
     const drivers = await Driver.findAll({
         include: {
@@ -15,6 +16,7 @@ const getAllDrivers = async () => {
     return drivers;
 }
 
+// Buscando driver por id
 const getDriverById = async (id) => {
     const driver = await Driver.findOne({
         where: {
@@ -52,11 +54,13 @@ const getDriverByName = async (name) => {
     return driver;
 }
 
+// Creando un nuevo driver
 const createDriver = async (driverData) => {
     const driver = await Driver.create(driverData);
     return driver;
 }
 
+// Actualizando un driver
 const updateDriver = async (id, driverData) => {
     const updatedDriver = await Driver.update(
         driverData, { where: {
@@ -67,6 +71,7 @@ const updateDriver = async (id, driverData) => {
     return updatedDriver;
 }
 
+// Eliminando un driver
 const deleteDriver = async (id) => {
     const deletedDriver = await Driver.destroy({
         where: {

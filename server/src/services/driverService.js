@@ -3,7 +3,9 @@ const { fetchApi, fetchApiById, fetchApiByName } = require('../utils/fetchApi')
 const { getAllDrivers, getDriverById, getDriverByName, createDriver, updateDriver, deleteDriver } = require('../repositories/driversRepository')
 const { getTeamByName, createTeam } = require('../repositories/teamRepository')
 
-
+// Servicio para obtener todos los drivers
+// Busca los drivers en la API y en la base de datos
+// Retorna los drivers encontrados en la API y en la base de datos debidamente formateados
 const getAllDriversServices = async () => {
     const driversApi = await fetchApi()
 
@@ -16,6 +18,10 @@ const getAllDriversServices = async () => {
     return formattedDrivers
 }
 
+// Servicio para obtener un driver por su id
+// Recibe el id del driver
+// Busca el driver en la API y en la base de datos
+// Retorna el driver encontrado en la API o en la base de datos debidamente formateado
 const getDriverByIdServices = async (id) => {
     try {
         const driverApi = await fetchApiById(id)
@@ -34,6 +40,10 @@ const getDriverByIdServices = async (id) => {
     }
 }
 
+// Servicio para obtener un driver por su nombre
+// Recibe el nombre del driver
+// Busca el driver en la API y en la base de datos
+// Retorna el driver encontrado en la API o en la base de datos debidamente formateado
 const getDriverByNameServices = async (name) => {
     const driverApi = await fetchApiByName(name)
     const driverDB = await getDriverByName(name)
@@ -46,7 +56,9 @@ const getDriverByNameServices = async (name) => {
 
 }
 
-// Servicio para crear driver en la base de datos
+// Servicio para crear un nuevo driver en la base de datos
+// Recibe un objeto con los datos del driver y los equipos a los que pertenece
+// Crea el driver en la base de datos y los equipos si no existen
 const createDriverServices = async (driverData) => {
 
     const newDriver = await createDriver({
@@ -77,6 +89,9 @@ const createDriverServices = async (driverData) => {
 
 }
 
+// Servicio para actualizar los datos de un driver en la base de datos
+// Recibe el id del driver y un objeto con los datos a actualizar
+// Actualiza los datos del driver en la base de datos
 const updateDriverServices = async (id, driver) => {
     // Verificar si existe el Driver
     const driverOnly = await getDriverById(id)
@@ -96,6 +111,9 @@ const updateDriverServices = async (id, driver) => {
     return updatedDriver
 }
 
+// Servicio para eliminar un driver de la base de datos
+// Recibe el id del driver a eliminar
+// Elimina el driver de la base de datos
 const deleteDriverServices = async (id) => {
     // Verificar si existe el Driver
     const driver = await getDriverById(id)
