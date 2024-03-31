@@ -1,0 +1,109 @@
+.grid {
+    display: grid;
+        // Grid template columns
+        &.grid-cols-none {
+            grid-template-columns: none;
+        }
+        @for $i from 1 through 12 {
+            &.grid-cols-#{$i} {
+                grid-template-columns: repeat($i, minmax(0, 1fr));
+            }
+        }
+
+        // Grid template rows
+        &.grid-rows-none {
+            grid-template-rows: none;
+        }
+        @for $i from 1 through 12 {
+            &.grid-rows-#{$i} {
+                grid-template-rows: repeat($i, minmax(0, 1fr));
+            }
+        }
+
+        @each $size, $value in $gap-sizes {
+            &.gap-#{$size} {
+                gap: $value;
+            }
+            &.gap-x-#{$size} {
+                column-gap: $value;
+            }
+            &.gap-y-#{$size} {
+                row-gap: $value;
+            }
+        }
+
+        // Justify content
+        $justify-content-values: normal start end center between around evenly stretch;
+        @each $value in $justify-content-values {
+            &.justify-#{$value} {
+                justify-content: $value;
+            }
+        }
+
+        $justify-items-values: start end center stretch;
+        @each $value in $justify-items-values {
+            &.justify-items-#{$value} {
+                justify-items: $value;
+            }
+        }
+
+        &.place-items-start{
+            place-items: start;
+        }
+        &.place-items-center{
+            place-items: center;
+        }
+        &.place-items-end{
+            place-items: end;
+        }
+}
+
+// Grid column start / end
+.col-auto {
+    grid-column: auto;
+}
+.col-start-auto {
+    grid-column-start: auto;
+}
+.col-end-auto {
+    grid-column-end: auto;
+}
+.col-span-full {
+    grid-column: 1 / -1;
+}
+@for $i from 1 through 12 {
+    .col-span-#{$i} {
+        grid-column: span $i / span $i;
+    }
+    .col-start-#{$i} {
+        grid-column-start: $i;
+    }
+    .col-end-#{$i} {
+        grid-column-end: $i;
+    }
+}
+
+// Grid row start / end
+.row-auto {
+    grid-row: auto;
+}
+.row-span-full {
+    grid-row: 1 / -1;
+}
+.row-start-auto {
+    grid-row-start: auto;
+}
+.row-end-auto {
+    grid-row-end: auto;
+}
+@for $i from 1 through 12 {
+    .row-span-#{$i} {
+        grid-row: span $i / span $i;
+    }
+    .row-start-#{$i} {
+        grid-row-start: $i;
+    }
+    .row-end-#{$i} {
+        grid-row-end: $i;
+    }
+}

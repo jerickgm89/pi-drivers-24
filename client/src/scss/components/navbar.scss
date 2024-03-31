@@ -1,0 +1,26 @@
+.linkNav {
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover {
+        background-color: $f1-azure-600;
+    }
+    &:active {
+        background-color: $f1-azure-800;
+    }
+}
+
+.searchNav{
+    border: none;
+    width: auto;
+    height: 30px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.hamburguesaButton {
+    display: none;
+    @include responsive('md') {
+        display: block;
+    }
+}

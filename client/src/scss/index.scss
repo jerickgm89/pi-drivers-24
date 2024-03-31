@@ -1,0 +1,21 @@
+// Base
+@import './base/_reset.scss';
+@import './base/_variables.scss';
+@import './base/_global.scss';
+@import './base/typography.scss';
+@import './base/grid.scss';
+@import './base/flex.scss';
+@import './base/sizing.scss';
+@import './base/borders.scss';
+@import './base/spacing.scss';
+@import './base/background.scss';
+@import './base/responsive.scss';
+
+//Components
+@import './components/navbar.scss';
+
+// Elements
+@import './elements/button.scss';
+
+// Page
+@import './pages/homePage.scss';

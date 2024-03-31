@@ -1,0 +1,33 @@
+// Border radius
+@for $i from 0 through 8 {
+    @if $i % 2 == 0 {
+        .border-#{$i} {
+            border: #{$i}px solid;
+        }
+        .border-t-#{$i} {
+          border-top: #{$i}px solid;
+        }
+        .border-r-#{$i} {
+          border-right: #{$i}px solid;
+        }
+    }
+}
+
+// Por cada color en el mapa de colores, crea una clase con el nombre del color y le asigna el color correspondiente
+@each $name, $radius in $border-radius {
+  .rounded-#{$name} {
+    border-radius: $radius;
+  }
+}
+
+.rounded-tr-lg {
+    border-top-right-radius: map-get($border-radius, 'lg');
+}
+
+
+// Por cada color en el mapa de colores, crea una clase con el nombre del color y le asigna el color correspondiente
+@each $color-name, $color in $f1-colors {
+  .border-#{$color-name} {
+    border-color: $color;
+  }
+}

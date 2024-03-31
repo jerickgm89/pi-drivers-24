@@ -1,0 +1,17 @@
+.bodyHome {
+    background-image: url('/f1-background-home-min.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.homeContainer {
+    background-color: rgba(221, 37, 37, 0.5);
+    backdrop-filter: blur(8px);
+    --webkit-backdrop-filter: blur(8px);    
+}
+
+.textHome {
+    color: white;
+}

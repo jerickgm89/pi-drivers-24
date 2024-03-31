@@ -1,0 +1,33 @@
+// Recorre el mapa de espaciados y crea clases de utilidad para cada uno de ellos.
+@each $name, $spacing in $spacings {
+  .p-#{$name} {
+    padding: $spacing;
+  }
+  .pt-#{$name} {
+    padding-top: $spacing;
+  }
+  .pr-#{$name} {
+    padding-right: $spacing;
+  }
+  .pb-#{$name} {
+    padding-bottom: $spacing;
+  }
+  .pl-#{$name} {
+    padding-left: $spacing;
+  }
+  .m-#{$name} {
+    margin: $spacing;
+  }
+  .mt-#{$name} {
+    margin-top: $spacing;
+  }
+  .mr-#{$name} {
+    margin-right: $spacing;
+  }
+  .mb-#{$name} {
+    margin-bottom: $spacing;
+  }
+  .ml-#{$name} {
+    margin-left: $spacing;
+  }
+}

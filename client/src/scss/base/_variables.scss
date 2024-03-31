@@ -1,0 +1,68 @@
+// Variables para la paleta de colores
+$f1-azure-50: #fef2f2;
+$f1-azure-100: #fee2e2;
+$f1-azure-200: #fecaca;
+$f1-azure-300: #fda4a4;
+$f1-azure-400: #f97070;
+$f1-azure-500: #f04343;
+$f1-azure-600: #dd2525;
+$f1-azure-700: #ae1919;
+$f1-azure-800: #9a1a1a;
+$f1-azure-900: #801c1c;
+$f1-azure-950: #450a0a;
+
+
+$f1-colors: (
+  "50": $f1-azure-50,
+  "100": $f1-azure-100,
+  "200": $f1-azure-200,
+  "300": $f1-azure-300,
+  "400": $f1-azure-400,
+  "500": $f1-azure-500,
+  "600": $f1-azure-600,
+  "700": $f1-azure-700,
+  "800": $f1-azure-800,
+  "900": $f1-azure-900,
+  "950": $f1-azure-950
+);
+
+// Variables para los radios de los bordes
+$border-radius: (
+  "none": 0px,
+  "sm": 0.125rem,
+  "default": 0.25rem,
+  "md": 0.375rem,
+  "lg": 0.5rem,
+  "full": 9999px
+);
+
+$common-sizes: (
+  "0": 0,
+  "1": 0.25rem,
+  "2": 0.5rem,
+  "3": 0.75rem,
+  "4": 1rem,
+  "5": 1.25rem,
+  "6": 1.5rem,
+  "8": 2rem,
+  "10": 2.5rem,
+  "12": 3rem,
+  "16": 4rem,
+  "20": 5rem,
+  "24": 6rem,
+  "32": 8rem,
+  "40": 10rem,
+  "48": 12rem,
+  "56": 14rem,
+  "64": 16rem,
+);
+
+$sizes: map-merge($common-sizes, (
+  "auto": auto,
+  "full": 100%,
+  "screen": 100vh
+));
+
+$spacings: $common-sizes;
+
+$gap-sizes: $common-sizes;

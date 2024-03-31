@@ -1,0 +1,21 @@
+// Toma las variables de los espaciados y las convierte en clases para width, height, min-width, min-height, max-width y max-height
+@each $name, $size in $sizes {
+  .w-#{$name} {
+    width: $size;
+  }
+  .h-#{$name} {
+    height: $size;
+  }
+  .min-w-#{$name} {
+    min-width: $size;
+  }
+  .min-h-#{$name} {
+    min-height: $size;
+  }
+  .max-w-#{$name} {
+    max-width: $size;
+  }
+  .max-h-#{$name} {
+    max-height: $size;
+  }
+}
