@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { driversSlice } from './drivers';
 
 export const store = configureStore({
     reducer: {
-        // Add your reducers here
+        drivers: driversSlice.reducer,
     },
 });

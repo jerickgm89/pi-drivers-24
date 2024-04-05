@@ -11,7 +11,7 @@ const {
 // Si no se envía un query, se obtendrán todos los drivers
 const getDrivers = async (req, res) => {
     try {
-        const { name } = req.query
+        const { name, limit, offset } = req.query
         
         if(name) {
             const driver = await getDriverByNameServices(name)
@@ -19,7 +19,7 @@ const getDrivers = async (req, res) => {
                 .status(200)
                 .json(driver)
         } else {
-            const drivers = await getAllDriversServices()
+            const drivers = await getAllDriversServices(offset)
             res
                 .status(200)
                 .json(drivers)

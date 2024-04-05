@@ -2,9 +2,10 @@ const axios = require('axios');
 const API = 'http://localhost:5000/drivers';
 
 // Peticion a la API de drivers
-const fetchApi = async () => {
+const fetchApi = async (offset) => {
     try {
-        const dataApi = await axios.get(API);
+        const url = offset ? `${API}?_limit=10&_start=${offset}` : API;
+        const dataApi = await axios.get(url);
         return dataApi.data;
     }
     catch (error) {

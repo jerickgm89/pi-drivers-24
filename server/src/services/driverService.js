@@ -2,12 +2,13 @@ const { formatSendResponse } = require('../utils/formatSendResponse')
 const { fetchApi, fetchApiById, fetchApiByName } = require('../utils/fetchApi')
 const { getAllDrivers, getDriverById, getDriverByName, createDriver, updateDriver, deleteDriver } = require('../repositories/driversRepository')
 const { getTeamByName, createTeam } = require('../repositories/teamRepository')
+const { parse } = require('dotenv')
 
 // Servicio para obtener todos los drivers
 // Busca los drivers en la API y en la base de datos
 // Retorna los drivers encontrados en la API y en la base de datos debidamente formateados
-const getAllDriversServices = async () => {
-    const driversApi = await fetchApi()
+const getAllDriversServices = async (offset) => {
+    const driversApi = offset ? await fetchApi(offset) : await fetchApi()
 
     const driversDB = await getAllDrivers()
 
