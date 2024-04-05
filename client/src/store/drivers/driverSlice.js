@@ -12,12 +12,16 @@ export const driversSlice = createSlice({
             state.isLoading = true;
         },
         setDrivers: (state, action) => {
-            state.drivers = action.payload;
             state.isLoading = false;
+            state.page = action.payload.page;
+            state.drivers = action.payload.drivers;
         },
     }
 });
 
 
 // Action creators are generated for each case reducer function
-export const { starLoadingDrivers, setDrivers } = driversSlice.actions;
+export const { 
+    starLoadingDrivers, 
+    setDrivers 
+} = driversSlice.actions;

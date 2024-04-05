@@ -1,0 +1,231 @@
+.flex {
+  display: flex;
+}
+.flex.flex-row {
+  flex-direction: row;
+}
+.flex.justify-normal {
+  justify-content: normal;
+}
+.flex.justify-start {
+  justify-content: flex-start;
+}
+.flex.justify-end {
+  justify-content: flex-end;
+}
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.justify-between {
+  justify-content: space-between;
+}
+.flex.justify-around {
+  justify-content: space-around;
+}
+.flex.justify-evenly {
+  justify-content: space-evenly;
+}
+.flex.justify-stretch {
+  justify-content: stretch;
+}
+.flex.justify-items-start {
+  justify-items: start;
+}
+.flex.justify-items-end {
+  justify-items: end;
+}
+.flex.justify-items-center {
+  justify-items: center;
+}
+.flex.justify-items-stretch {
+  justify-items: stretch;
+}
+.flex.items-start {
+  align-items: start;
+}
+.flex.items-end {
+  align-items: end;
+}
+.flex.items-center {
+  align-items: center;
+}
+.flex.items-baseline {
+  align-items: baseline;
+}
+.flex.items-stretch {
+  align-items: stretch;
+}
+
+.flex {
+  display: flex;
+}
+.flex.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex.justify-normal {
+  justify-content: normal;
+}
+.flex.justify-start {
+  justify-content: flex-start;
+}
+.flex.justify-end {
+  justify-content: flex-end;
+}
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.justify-between {
+  justify-content: space-between;
+}
+.flex.justify-around {
+  justify-content: space-around;
+}
+.flex.justify-evenly {
+  justify-content: space-evenly;
+}
+.flex.justify-stretch {
+  justify-content: stretch;
+}
+.flex.justify-items-start {
+  justify-items: start;
+}
+.flex.justify-items-end {
+  justify-items: end;
+}
+.flex.justify-items-center {
+  justify-items: center;
+}
+.flex.justify-items-stretch {
+  justify-items: stretch;
+}
+.flex.items-start {
+  align-items: start;
+}
+.flex.items-end {
+  align-items: end;
+}
+.flex.items-center {
+  align-items: center;
+}
+.flex.items-baseline {
+  align-items: baseline;
+}
+.flex.items-stretch {
+  align-items: stretch;
+}
+
+.flex {
+  display: flex;
+}
+.flex.flex-col {
+  flex-direction: column;
+}
+.flex.justify-normal {
+  justify-content: normal;
+}
+.flex.justify-start {
+  justify-content: flex-start;
+}
+.flex.justify-end {
+  justify-content: flex-end;
+}
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.justify-between {
+  justify-content: space-between;
+}
+.flex.justify-around {
+  justify-content: space-around;
+}
+.flex.justify-evenly {
+  justify-content: space-evenly;
+}
+.flex.justify-stretch {
+  justify-content: stretch;
+}
+.flex.justify-items-start {
+  justify-items: start;
+}
+.flex.justify-items-end {
+  justify-items: end;
+}
+.flex.justify-items-center {
+  justify-items: center;
+}
+.flex.justify-items-stretch {
+  justify-items: stretch;
+}
+.flex.items-start {
+  align-items: start;
+}
+.flex.items-end {
+  align-items: end;
+}
+.flex.items-center {
+  align-items: center;
+}
+.flex.items-baseline {
+  align-items: baseline;
+}
+.flex.items-stretch {
+  align-items: stretch;
+}
+
+.flex {
+  display: flex;
+}
+.flex.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+.flex.justify-normal {
+  justify-content: normal;
+}
+.flex.justify-start {
+  justify-content: flex-start;
+}
+.flex.justify-end {
+  justify-content: flex-end;
+}
+.flex.justify-center {
+  justify-content: center;
+}
+.flex.justify-between {
+  justify-content: space-between;
+}
+.flex.justify-around {
+  justify-content: space-around;
+}
+.flex.justify-evenly {
+  justify-content: space-evenly;
+}
+.flex.justify-stretch {
+  justify-content: stretch;
+}
+.flex.justify-items-start {
+  justify-items: start;
+}
+.flex.justify-items-end {
+  justify-items: end;
+}
+.flex.justify-items-center {
+  justify-items: center;
+}
+.flex.justify-items-stretch {
+  justify-items: stretch;
+}
+.flex.items-start {
+  align-items: start;
+}
+.flex.items-end {
+  align-items: end;
+}
+.flex.items-center {
+  align-items: center;
+}
+.flex.items-baseline {
+  align-items: baseline;
+}
+.flex.items-stretch {
+  align-items: stretch;
+}/*# sourceMappingURL=flex.css.map */

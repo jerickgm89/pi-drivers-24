@@ -15,9 +15,7 @@ export const NavBar = () => {
                     <Link to="/drivers" className="linkNav text-color-50 mr-4 p-2 rounded-tr-lg">Drivers</Link>
                     <Link to="/teams" className="linkNav text-color-50 p-2 rounded-tr-lg">Teams</Link>
                 </div>
-                <div>
-                    <input type="text" placeholder="Search" className="searchNav rounded-tr-lg mr-4" />
-                </div>
+
 
                 <button className='hidden'>
                     ☰
