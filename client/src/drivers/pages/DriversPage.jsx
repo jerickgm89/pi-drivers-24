@@ -46,9 +46,19 @@ export const DriversPage = () => {
   } else if (sortOrder === 'name-desc') {
     sortedDrivers.sort((a, b) => b.name.localeCompare(a.name));
   } else if (sortOrder === 'birth-asc') {
-    sortedDrivers.sort((a, b) => a.birth - b.birth);
+    sortedDrivers.sort((a, b) => {
+        if (!a.date || !b.date) return 0;
+        const [yearA, monthA, dayA] = a.date.split('-');
+        const [yearB, monthB, dayB] = b.date.split('-');
+        return new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
+    });
   } else if (sortOrder === 'birth-desc') {
-    sortedDrivers.sort((a, b) => b.birth - a.birth);
+      sortedDrivers.sort((a, b) => {
+          if (!a.date || !b.date) return 0;
+          const [yearA, monthA, dayA] = a.date.split('-');
+          const [yearB, monthB, dayB] = b.date.split('-');
+          return new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
+      });
   }
 
   const nextPage = () => {
@@ -69,21 +79,14 @@ export const DriversPage = () => {
     setIsSearchById(event.target.checked);
   }
   
-  const driversArray = Array.isArray(drivers) ? drivers : [drivers];
 
-  // const dispatch = useDispatch();
-  // const { isLoading, drivers = [], page } = useSelector( state => state.drivers );
-
-  // useEffect(() => {
-  //     dispatch( getDrivers() )
-  // }, []);
 
   return (
     <>
         <NavBar />
         {/* <CardDrives /> */}
 
-        <span>Loading: { isLoading ? 'True': 'False'}</span>
+        {/* <span>Loading: { isLoading ? 'True': 'False'}</span> */}
         <br />
         <br />
         
