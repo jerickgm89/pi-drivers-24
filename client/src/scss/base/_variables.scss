@@ -36,6 +36,15 @@ $border-radius: (
   "full": 9999px
 );
 
+// Definir los breakpoints
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+);
+
 $common-sizes: (
   "0": 0,
   "1": 0.25rem,
@@ -63,6 +72,7 @@ $sizes: map-merge($common-sizes, (
   "screen": 100vh
 ));
 
-$spacings: $common-sizes;
+// Spaceing and gap sizes
 
+$spacings: $common-sizes;
 $gap-sizes: $common-sizes;

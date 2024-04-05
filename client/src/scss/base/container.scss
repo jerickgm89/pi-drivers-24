@@ -1,0 +1,6 @@
+// Container
+@each $breakpoint, $value in $breakpoints {
+  .container-#{$breakpoint} {
+    max-width: $value;
+  }
+}
