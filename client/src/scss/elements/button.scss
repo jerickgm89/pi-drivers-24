@@ -40,4 +40,20 @@
             color: $f1-azure-200;
         }
     }
+    &.btn-paginator {
+        background-color: $f1-azure-500;
+        color: $f1-azure-50;
+        font-weight: 400;
+        margin: 0.5vh;
+        &:hover {
+            background-color: $f1-azure-600;
+        }
+        &:active {
+            background-color: $f1-azure-700;
+        }
+        &.disabled {
+            background-color: $f1-azure-100;
+            color: $f1-azure-400;
+        }
+    }
 }

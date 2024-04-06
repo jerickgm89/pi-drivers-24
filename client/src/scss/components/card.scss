@@ -1,0 +1,12 @@
+.imageCard{
+    width: 30vh;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.nameCard {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: $f1-azure-600;
+}
