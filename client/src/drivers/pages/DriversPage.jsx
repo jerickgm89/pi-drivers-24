@@ -47,36 +47,41 @@ export const DriversPage = () => {
 
   return (
     <>
-      <NavBar />
       
-      <h1 className="text-center text-6xl font-black">F1 Drivers 2024</h1>
+      <NavBar />
 
-      <SearchAndSort
-        handleCheckboxChange={handleCheckboxChange}
-        handleSearchChange={handleSearchChange}
-        setSortOrder={setSortOrder}
-        prevPage={prevPage}
-        nextPage={nextPage}
-      />
-      <div className="grid gap-20 grid-cols-3 justify-center m-10 p-10">
-        {
-          isLoading ? (
-            <h1>Cargando...</h1>
-          ) : (
-            sortedDrivers.map((driver) => (
-              <Card 
-                key={driver.id} 
-                id={driver.id}
-                image={driver.image}
-                name={driver.name}
-                surname={driver.surname}
-                description={driver.description}
-                teams={driver.teams}
-                date={driver.date}
-              />
-            ))          
-          )
-        }
+      <div className="container-3xl mx-auto">
+        
+        <h1 className="text-center text-6xl font-black">F1 Drivers 2024</h1>
+
+        <SearchAndSort
+          handleCheckboxChange={handleCheckboxChange}
+          handleSearchChange={handleSearchChange}
+          setSortOrder={setSortOrder}
+          prevPage={prevPage}
+          nextPage={nextPage}
+        />
+        <div className="grid gap-20 grid-cols-3 m-5">
+          {
+            isLoading ? (
+              <h1>Cargando...</h1>
+            ) : (
+              sortedDrivers.map((driver) => (
+                <Card 
+                  key={driver.id} 
+                  id={driver.id}
+                  image={driver.image}
+                  name={driver.name}
+                  surname={driver.surname}
+                  description={driver.description}
+                  teams={driver.teams}
+                  date={driver.date}
+                />
+              ))          
+            )
+          }
+        </div>
+
       </div>
 
     </>
