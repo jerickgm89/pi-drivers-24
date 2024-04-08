@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { NavBar } from "../../components/navbar"
-import { useGetDriversQuery, useGetAllDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery } from '../../store/api';
+import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery } from '../../store/api';
 
 import { Card } from '../../components/card';
 import { SearchAndSort } from '../../components/searchAndSort';
@@ -50,7 +50,7 @@ export const DriversPage = () => {
       
       <NavBar />
 
-      <div className="container-3xl mx-auto">
+      <div className="container-3xl mx-auto pt-16">
         
         <h1 className="text-center text-6xl font-black">F1 Drivers 2024</h1>
 

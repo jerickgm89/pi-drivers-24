@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const Card = ({ id, image, name, surname, teams, date}) => {
   return (
-    <Link to={`/drivers/${id}`}>
+    <Link to={`/drivers/${id}`} className="LinkStyle">
       <div className="border-t-2 border-r-2 border-500 rounded-tr-lg">
         <div className="ml-3 mr-3">
           <span className="font-black text-6xl">{id}</span>

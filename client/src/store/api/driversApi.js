@@ -23,6 +23,18 @@ export const driversApi = createApi({
             query: (id) => `drivers/${id}`,
             providesTags: ['Drivers'],
         }),
+        getTeams: builder.query({
+            query: () => `teams`,
+            providesTags: ['Teams'],
+        }),
+        postDriver: builder.mutation({
+            query: (driver) => ({
+                url: `drivers`,
+                method: 'POST',
+                body: driver
+            }),
+            invalidatesTags: ['Drivers'],
+        }),
     }),
 
 });
@@ -31,5 +43,7 @@ export const {
     useGetDriversQuery, 
     useGetAllDriversQuery, 
     useGetNameDriverQuery, 
-    useGetIdDriverQuery 
+    useGetIdDriverQuery,
+    useGetTeamsQuery,
+    usePostDriverMutation
 } = driversApi;

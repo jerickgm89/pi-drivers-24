@@ -2,7 +2,7 @@
 @for $i from 0 through 8 {
     @if $i % 2 == 0 {
         .border-#{$i} {
-            border: #{$i}px solid;
+          border: #{$i}px solid;
         }
         .border-t-#{$i} {
           border-top: #{$i}px solid;

@@ -28,12 +28,12 @@
         background-color: $f1-azure-50;
         color: $f1-azure-500;
         &:hover {
-            border-color: $f1-azure-700;
-            color: $f1-azure-700;
+            background-color: $f1-azure-500;
+            color: $f1-azure-50;
         }
         &:active {
-            border-color: $f1-azure-800;
-            color: $f1-azure-800;
+            background-color: $f1-azure-700;
+            color: $f1-azure-50;
         }
         &.disabled {
             border-color: $f1-azure-200;
@@ -46,10 +46,10 @@
         font-weight: 400;
         margin: 0.5vh;
         &:hover {
-            background-color: $f1-azure-600;
+            background-color: $f1-azure-800;
         }
         &:active {
-            background-color: $f1-azure-700;
+            background-color: $f1-azure-600;
         }
         &.disabled {
             background-color: $f1-azure-100;
