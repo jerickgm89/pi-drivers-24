@@ -1,5 +1,4 @@
 import { usePostDriverMutation } from "../../store/api"
-
 import { NavBar } from "../../components/navbar"
 import { useForm } from "../../hooks"
 
@@ -30,7 +29,8 @@ export const NewDrive = () => {
   const [postDriver, {isLoading} ] = usePostDriverMutation();
   
   const { formState, name, surname, nationality, date, team, description, image, onInputChange,
-          isFormValid, nameValid, surnameValid, nationalityValid, dateValid, teamsValid, descriptionValid, imageValid  } = useForm(formData, formValidations);
+          isFormValid, nameValid, surnameValid, nationalityValid, dateValid, teamsValid, descriptionValid, imageValid,
+          onResetForm  } = useForm(formData, formValidations);
 
 
   const handleSubmit = (e) => {
@@ -38,6 +38,8 @@ export const NewDrive = () => {
     postDriver(formState);
     
     console.log(formState);
+    onResetForm();
+    alert('Driver created successfully');
   };
 
   return (
