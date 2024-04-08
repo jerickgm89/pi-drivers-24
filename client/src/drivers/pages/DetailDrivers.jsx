@@ -7,9 +7,7 @@ import { CardDetail } from '../../components/card/CardDetail';
 export const DetailDrivers = () => {
 
   const { id } = useParams();
-  if (isNaN(id)) {
-    return <Navigate to="/" />; // Redirige a una página de error o a donde prefieras
-  }
+
   const { data: driver = [], isLoading } = useGetIdDriverQuery(id);
   
   return (

@@ -16,7 +16,7 @@ const getAllDriversServices = async (offset) => {
 
     let formattedDrivers = drivers.map(driver => formatSendResponse(driver))
 
-    return formattedDrivers
+    return formattedDrivers.slice(0, 9)
 }
 
 // Servicio para obtener un driver por su id

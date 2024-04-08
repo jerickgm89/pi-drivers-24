@@ -61,6 +61,50 @@ table {
   display: block;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fixed {
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.container-sm {
+  max-width: 640px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.container-xl {
+  max-width: 1280px;
+}
+
+.container-2xl {
+  max-width: 1536px;
+}
+
+.container-3xl {
+  max-width: 1920px;
+}
+
+.container-4xl {
+  max-width: 2560px;
+}
+
 body {
   font-family: "Source Code Pro", "Courier New", monospace;
   line-height: 1.5;
@@ -910,6 +954,15 @@ body {
 .flex.items-stretch {
   align-items: stretch;
 }
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.flex.flex-nowrap {
+  flex-wrap: nowrap;
+}
 
 .flex {
   display: flex;
@@ -967,6 +1020,15 @@ body {
 }
 .flex.items-stretch {
   align-items: stretch;
+}
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.flex.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 .flex {
@@ -1026,6 +1088,15 @@ body {
 .flex.items-stretch {
   align-items: stretch;
 }
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.flex.flex-nowrap {
+  flex-wrap: nowrap;
+}
 
 .flex {
   display: flex;
@@ -1083,6 +1154,15 @@ body {
 }
 .flex.items-stretch {
   align-items: stretch;
+}
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.flex.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 .w-0 {
@@ -1669,6 +1749,10 @@ body {
   border-radius: 0.5rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1741,6 +1825,11 @@ body {
   padding-left: 0;
 }
 
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .m-0 {
   margin: 0;
 }
@@ -1779,6 +1868,11 @@ body {
 
 .pl-1 {
   padding-left: 0.25rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .m-1 {
@@ -1821,6 +1915,11 @@ body {
   padding-left: 0.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .m-2 {
   margin: 0.5rem;
 }
@@ -1859,6 +1958,11 @@ body {
 
 .pl-3 {
   padding-left: 0.75rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .m-3 {
@@ -1901,6 +2005,11 @@ body {
   padding-left: 1rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -1939,6 +2048,11 @@ body {
 
 .pl-5 {
   padding-left: 1.25rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .m-5 {
@@ -1981,6 +2095,11 @@ body {
   padding-left: 1.5rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .m-6 {
   margin: 1.5rem;
 }
@@ -2019,6 +2138,11 @@ body {
 
 .pl-8 {
   padding-left: 2rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .m-8 {
@@ -2061,6 +2185,11 @@ body {
   padding-left: 2.5rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .m-10 {
   margin: 2.5rem;
 }
@@ -2099,6 +2228,11 @@ body {
 
 .pl-12 {
   padding-left: 3rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .m-12 {
@@ -2141,6 +2275,11 @@ body {
   padding-left: 4rem;
 }
 
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
 .m-16 {
   margin: 4rem;
 }
@@ -2179,6 +2318,11 @@ body {
 
 .pl-20 {
   padding-left: 5rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .m-20 {
@@ -2221,6 +2365,11 @@ body {
   padding-left: 6rem;
 }
 
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .m-24 {
   margin: 6rem;
 }
@@ -2259,6 +2408,11 @@ body {
 
 .pl-32 {
   padding-left: 8rem;
+}
+
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 .m-32 {
@@ -2301,6 +2455,11 @@ body {
   padding-left: 10rem;
 }
 
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
 .m-40 {
   margin: 10rem;
 }
@@ -2339,6 +2498,11 @@ body {
 
 .pl-48 {
   padding-left: 12rem;
+}
+
+.px-48 {
+  padding-left: 12rem;
+  padding-right: 12rem;
 }
 
 .m-48 {
@@ -2381,6 +2545,11 @@ body {
   padding-left: 14rem;
 }
 
+.px-56 {
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
+
 .m-56 {
   margin: 14rem;
 }
@@ -2419,6 +2588,11 @@ body {
 
 .pl-64 {
   padding-left: 16rem;
+}
+
+.px-64 {
+  padding-left: 16rem;
+  padding-right: 16rem;
 }
 
 .m-64 {
@@ -2514,6 +2688,89 @@ body {
   }
 }
 
+.imageCard {
+  width: 30vh;
+  height: 40vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.nameCard {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #dd2525;
+}
+
+.LinkStyle {
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s;
+}
+.LinkStyle:hover {
+  background-color: #fef2f2;
+  color: #450a0a;
+  transform: scale(1.05);
+}
+
+.cardDetail {
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s;
+}
+.cardDetail:hover {
+  background-color: #fef2f2;
+  color: #450a0a;
+  transform: scale(1.05);
+}
+
+.imgDetail {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fadeInName {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fadeInNationality {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.fadeInDescription {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInDate {
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.fadeInTeams {
+  animation: fadeIn 3s ease-in-out;
+}
+
+.fadeInButton {
+  animation: fadeIn 3.5s ease-in-out;
+}
+
+td {
+  padding-left: 10px;
+}
+
 .btn {
   padding: 10px 20px;
   cursor: pointer;
@@ -2546,16 +2803,45 @@ body {
   color: #f04343;
 }
 .btn.btn-outline:hover {
-  border-color: #ae1919;
-  color: #ae1919;
+  background-color: #f04343;
+  color: #fef2f2;
 }
 .btn.btn-outline:active {
-  border-color: #9a1a1a;
-  color: #9a1a1a;
+  background-color: #ae1919;
+  color: #fef2f2;
 }
 .btn.btn-outline.disabled {
   border-color: #fecaca;
   color: #fecaca;
+}
+.btn.btn-paginator {
+  background-color: #f04343;
+  color: #fef2f2;
+  font-weight: 400;
+  margin: 0.5vh;
+}
+.btn.btn-paginator:hover {
+  background-color: #9a1a1a;
+}
+.btn.btn-paginator:active {
+  background-color: #dd2525;
+}
+.btn.btn-paginator.disabled {
+  background-color: #fee2e2;
+  color: #f97070;
+}
+
+.inputForm {
+  width: 100%;
+  border: 2px solid;
+  border-color: #fda4a4;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.inputForm:focus {
+  outline: none;
+  border-color: #dd2525;
 }
 
 .bodyHome {

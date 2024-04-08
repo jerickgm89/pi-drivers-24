@@ -68,7 +68,8 @@ export const DriversPage = () => {
             ) : (
               sortedDrivers.map((driver) => (
                 <Card 
-                  key={driver.id} 
+                  key={driver.id}
+                  isApi={driver.isApi} 
                   id={driver.id}
                   image={driver.image}
                   name={driver.name}

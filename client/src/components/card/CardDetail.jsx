@@ -17,7 +17,8 @@ export const CardDetail = ({id, image, name, surname, description, nationality, 
         </div>
 
         <div className="text-left p-3">
-          <h1 className="fadeInName text-3xl font-bold mb-3">{id} {name} {surname}</h1>
+          <h1 className="fadeInName text-3xl font-bold">{name} {surname}</h1>
+          <h2 className="fadeInName text-3xl font-bold mb-3">Id: {id}</h2>
           <table className="border-collapse">
             <tr>
               <th className="fadeInNationality text-xl">Country</th>

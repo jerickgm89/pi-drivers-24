@@ -42,6 +42,13 @@ $flex-directions: (
             }
         }
 
+        $wrap-values: wrap wrap-reverse nowrap;
+        @each $value in $wrap-values {
+            &.flex-#{$value} {
+                flex-wrap: $value;
+            }
+        }
+
     }
 
 }
