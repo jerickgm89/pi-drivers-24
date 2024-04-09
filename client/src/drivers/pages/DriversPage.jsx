@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 import { NavBar } from "../../components/navbar"
-import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery } from '../../store/api';
+import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery, useGetTeamsQuery } from '../../store/api';
 
 import { Card } from '../../components/card';
+import { Footer } from '../../components/footer';
 import { SearchAndSort } from '../../components/searchAndSort';
 
 import { sortDrivers } from '../utils/sortUtils';
 import { filterAndFormatDrivers } from '../utils/filterUtils';
-import { Footer } from '../../components/footer';
 
 export const DriversPage = () => {
   const [page, setPage] = useState(0);
@@ -23,7 +23,7 @@ export const DriversPage = () => {
 
   // Filtering
   let { data: drivers = [], isLoading } = query;
-  drivers = filterAndFormatDrivers(drivers, isSearchById, search);
+  drivers = filterAndFormatDrivers(drivers, search);
 
   // Sorting
   let sortedDrivers = sortDrivers(drivers, sortOrder);

@@ -2,21 +2,19 @@ export const SearchAndSort = ({ handleCheckboxChange, handleSearchChange, setSor
  
   return (
     <>
-      <div className="grid grid-cols-3 place-items-center">
+      <div className="searchSortResponsive">
 
-        <select onChange={(e) => setSortOrder(e.target.value)} className="text-xl text-color-950 mr-2">
+        <select onChange={(e) => setSortOrder(e.target.value)} className="text-xl text-color-950 mr-2 mb-2">
           <option value="">Sort by name</option>
           <option value="name-asc">Ascending</option>
           <option value="name-desc">Descending</option>
         </select>
 
         <div className="text-xl text-color-950 mr-2">
-          <input type="checkbox" onChange={handleCheckboxChange} />
-          <label>Por ID: </label>
-          <input type="text" onChange={handleSearchChange} placeholder="Buscar" className="text-xl text-color-950 mr-2" />
+          <input type="text" onChange={handleSearchChange} placeholder="Search for ID or Name" className="text-xl text-color-950 w-full mr-2 mb-2" />
         </div>
 
-        <select onChange={(e) => setSortOrder(e.target.value)} className="text-xl text-color-950 mr-2">
+        <select onChange={(e) => setSortOrder(e.target.value)} className="text-xl text-color-950 mr-2 mb-2">
           <option value="">Sort by birth year</option>
           <option value="birth-asc">Ascending</option>
           <option value="birth-desc">Descending</option>
