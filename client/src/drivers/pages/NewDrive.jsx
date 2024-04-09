@@ -1,4 +1,4 @@
-import { usePostDriverMutation } from "../../store/api"
+import { usePostDriverMutation, useGetNameDriverQuery } from "../../store/api"
 import { NavBar } from "../../components/navbar"
 import { useForm } from "../../hooks"
 import { Footer } from "../../components/footer"
@@ -26,21 +26,30 @@ const formValidations = {
 }
 
 export const NewDrive = () => {
-
+  
   const [postDriver, {isLoading} ] = usePostDriverMutation();
+
+
   
   const { formState, name, surname, nationality, date, team, description, image, onInputChange,
           isFormValid, nameValid, surnameValid, nationalityValid, dateValid, teamsValid, descriptionValid, imageValid,
           onResetForm  } = useForm(formData, formValidations);
 
+  const { data: existingDriver } = useGetNameDriverQuery(name);
+  const isDriverExists = existingDriver && existingDriver.length > 0;
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    if (isDriverExists) {
+      alert('Driver already exists');
+      return;
+    }
     postDriver(formState);
-    
     console.log(formState);
     onResetForm();
     alert('Driver created successfully');
+
   };
 
   return (
