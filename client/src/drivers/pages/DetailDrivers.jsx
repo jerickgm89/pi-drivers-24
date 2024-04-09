@@ -2,6 +2,7 @@ import { useGetIdDriverQuery } from '../../store/api';
 import { NavBar } from '../../components/navbar/NavBar';
 import { Navigate, useParams } from 'react-router-dom';
 import { CardDetail } from '../../components/card/CardDetail';
+import { Footer } from '../../components/footer';
 
 
 export const DetailDrivers = () => {
@@ -29,11 +30,10 @@ export const DetailDrivers = () => {
               date={driver.date}
             />
           )
-        }
-
-
-        
+        }        
       </div>
+
+      <Footer />
     </>
   )
 }

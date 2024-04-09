@@ -1,6 +1,7 @@
 import { usePostDriverMutation } from "../../store/api"
 import { NavBar } from "../../components/navbar"
 import { useForm } from "../../hooks"
+import { Footer } from "../../components/footer"
 
 
 const formData = {
@@ -188,6 +189,7 @@ export const NewDrive = () => {
           
         </form>
       </div>
+      <Footer />
     </>
   )
 }

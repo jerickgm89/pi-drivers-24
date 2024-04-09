@@ -10,7 +10,7 @@ export const CardDetail = ({id, image, name, surname, description, nationality, 
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-5 mt-10 border-t-2 border-r-2 border-500 rounded-tr-lg cardDetail">
+      <div className="grid gap-5 mt-10 border-t-2 border-r-2 border-500 rounded-tr-lg cardDetail">
 
         <div className='text-center p-4'>
           <img src={image} alt={name} className="imgDetail fadeIn rounded-xl"/>

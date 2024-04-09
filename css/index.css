@@ -77,6 +77,10 @@ table {
   z-index: 1;
 }
 
+.footerPosition {
+  bottom: 0;
+}
+
 .container-sm {
   max-width: 640px;
 }
@@ -2697,7 +2701,6 @@ body {
 }
 
 .nameCard {
-  border-top: 1px solid;
   border-bottom: 1px solid;
   border-color: #dd2525;
 }
@@ -2842,6 +2845,12 @@ td {
 .inputForm:focus {
   outline: none;
   border-color: #dd2525;
+}
+
+.error {
+  color: #dd2525;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 .bodyHome {

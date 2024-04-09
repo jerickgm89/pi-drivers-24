@@ -3,6 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
+body {
+  min-height: 100vh;  
+}
 
 .hidden {
   display: none;
@@ -26,4 +29,11 @@
   margin: 0;
   width: 100%;
   z-index: 1;
+}
+
+.footerPosition {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
 }

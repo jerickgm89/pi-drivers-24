@@ -8,6 +8,7 @@ import { SearchAndSort } from '../../components/searchAndSort';
 
 import { sortDrivers } from '../utils/sortUtils';
 import { filterAndFormatDrivers } from '../utils/filterUtils';
+import { Footer } from '../../components/footer';
 
 export const DriversPage = () => {
   const [page, setPage] = useState(0);
@@ -52,7 +53,7 @@ export const DriversPage = () => {
 
       <div className="container-3xl mx-auto pt-16">
         
-        <h1 className="text-center text-6xl font-black">F1 Drivers 2024</h1>
+        <h1 className="titleDriver">F1 Drivers 2024</h1>
 
         <SearchAndSort
           handleCheckboxChange={handleCheckboxChange}
@@ -61,10 +62,10 @@ export const DriversPage = () => {
           prevPage={prevPage}
           nextPage={nextPage}
         />
-        <div className="grid gap-20 grid-cols-3 m-5">
+        <div className="reponsiveCard ">
           {
             isLoading ? (
-              <h1>Cargando...</h1>
+              <div class="lds-ripple"><div></div><div></div></div>
             ) : (
               sortedDrivers.map((driver) => (
                 <Card 
@@ -84,7 +85,8 @@ export const DriversPage = () => {
         </div>
 
       </div>
-
+      
+      <Footer />
     </>
   )
 }

@@ -1,20 +1,30 @@
 .cardDetail{
     text-decoration: none;
     color: black;
-    transition: all 0.5s;
+    height: max-content;
     &:hover{
         background-color: $f1-azure-50;
         color: $f1-azure-950;
-        transform: scale(1.05);
+    }
+    @include responsive('sm') {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1rem;
+        margin: 2rem;
+    }
+    @include responsive('md') {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .imgDetail {
+        width: 100%;
+        object-fit: cover;
+        @include responsive('sm') {
+        }
     }
 }
 
-.imgDetail {
 
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-}
 
 @keyframes fadeIn {
     0% {opacity: 0;}
