@@ -1,8 +1,7 @@
 import { useGetIdDriverQuery } from '../../store/api';
-import { NavBar } from '../../components/navbar/NavBar';
-import { Navigate, useParams } from 'react-router-dom';
-import { CardDetail } from '../../components/card/CardDetail';
-import { Footer } from '../../components/footer';
+import { useParams } from 'react-router-dom';
+import { CardDetail } from '../../components/card/';
+import { PageLayout } from '../../layout';
 
 
 export const DetailDrivers = () => {
@@ -13,27 +12,23 @@ export const DetailDrivers = () => {
   
   return (
     <>
-      <NavBar />
-
-      <div className="container-2xl mx-auto pt-16">
-        
-      {
-          driver && (
-            <CardDetail
-              id={driver.id}
-              image={driver.image}
-              name={driver.name}
-              surname={driver.surname}
-              description={driver.description}
-              nationality={driver.nationality}
-              teams={driver.teams}
-              date={driver.date}
-            />
-          )
-        }        
-      </div>
-
-      <Footer />
+      <PageLayout numberContainer={2}>
+        {
+          isLoading ? <h1>Loading...</h1> :
+            driver && (
+              <CardDetail
+                id={driver.id}
+                image={driver.image}
+                name={driver.name}
+                surname={driver.surname}
+                description={driver.description}
+                nationality={driver.nationality}
+                teams={driver.teams}
+                date={driver.date}
+              />
+            )
+        }
+      </PageLayout>
     </>
   )
 }

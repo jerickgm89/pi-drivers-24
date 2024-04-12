@@ -1,7 +1,9 @@
 
 export const SearchBar = ({ handleSearchChange }) => {
+  
   return (
       <div className="text-xl text-color-950 mr-2 grid grid-cols-1 mx-auto p-5">
+
         <input 
           type="text" 
           placeholder="Search for ID or Name" 

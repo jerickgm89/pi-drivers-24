@@ -1,7 +1,6 @@
-import { usePostDriverMutation, useGetNameDriverQuery } from "../../store/api"
-import { NavBar } from "../../components/navbar"
-import { useForm } from "../../hooks"
-import { Footer } from "../../components/footer"
+import { usePostDriverMutation, useGetNameDriverQuery } from "../../store/api/driversApi"
+import { useForm } from "../../hooks/useForm"
+import { PageLayout } from "../../layout"
 
 
 const formData = {
@@ -25,7 +24,7 @@ const formValidations = {
   image: [ (value) => /^(http|https):\/\/[^ "]+$/.test(value), 'The image must be a valid URL']
 }
 
-export const NewDrive = () => {
+export const CreateDrive = () => {
   
   const [postDriver, {isLoading} ] = usePostDriverMutation();
 
@@ -54,10 +53,8 @@ export const NewDrive = () => {
 
   return (
     <>
-      <NavBar />
-
-      <div className="container-2xl mx-auto pt-16">
-        <h1 className="text-4xl font-bold text-center">Create new Drive</h1>
+      <PageLayout numberContainer={2}>
+      <h1 className="text-4xl font-bold text-center">Create new Drive</h1>
         
         <form onSubmit={handleSubmit} className='flex flex-col container-md mx-auto p-3'>
           <div className='m-2'>
@@ -197,8 +194,8 @@ export const NewDrive = () => {
           </button>
           
         </form>
-      </div>
-      <Footer />
+      </PageLayout>
     </>
   )
 }
+

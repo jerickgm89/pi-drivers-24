@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery, useGetTeamsQuery } from '../../store/api';
+import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery } from '../../store/api';
 
-import { NavBar, Card, Footer, SearchAndSort, Pagination, SearchBar } from '../../components';
+import { PageLayout } from '../../layout';
+import { NavBar, Card, Footer, Sort, Pagination, SearchBar } from '../../components';
 import { filterForIDDrivers, sortDrivers } from '../utils/';
 
 export const DriversPage = () => {
@@ -20,11 +21,10 @@ export const DriversPage = () => {
     query = useGetNameDriverQuery(search);
   }
 
-  let teamsQuery = useGetTeamsQuery();
-
   // Filtering
   let { data: drivers = [], isLoading } = query;
   drivers = filterForIDDrivers(drivers, search);
+
 
   // Sorting
   let sortedDrivers = sortDrivers(drivers, sortOrder);
@@ -48,14 +48,10 @@ export const DriversPage = () => {
 
   return (
     <>
-      
-      <NavBar />
-
-      <div className="container-3xl mx-auto pt-16">
-        
+      <PageLayout numberContainer={3}>
         <h1 className="titleDriver">F1 Drivers 2024</h1>
 
-        <SearchAndSort
+        <Sort
           handleSearchChange={handleSearchChange}
           setSortOrder={setSortOrder}
         />
@@ -82,10 +78,7 @@ export const DriversPage = () => {
             )
           }
         </div>
-
-      </div>
-      
-      <Footer />
+      </PageLayout>    
     </>
   )
 }

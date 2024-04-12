@@ -4,18 +4,8 @@ import { Link } from "react-router-dom"
 
 export const Card = ({ id, image, name, surname, teams, date, isApi}) => {
   
-  const [longIdCount, setLongIdCount] = useState(0)
-
-  useEffect(() => {
-    if (id.length > 5) {
-      setLongIdCount(prevCount => prevCount + 1)
-    }
-  }, [id])
-  
-
-
   return (
-    <Link to={`/drivers/${id}`} className="LinkStyle">
+    <Link to={`${id}`}  className="LinkStyle">
       <div className="border-t-2 border-r-2 border-500 rounded-tr-lg cardContainer">
         
         <div className="text-left nameCard ml-3 mr-3">

@@ -27,7 +27,8 @@ export const NavBar = () => {
 
                 <div className="text-xl font-medium">
                     <Link to="/drivers" className="linkNav text-color-50 mr-4 p-2 rounded-tr-lg">Drivers</Link>
-                    <Link to="/drivers/newDrive" className="linkNav text-color-50 p-2 rounded-tr-lg">Create Driver</Link>
+                    <Link to="/teams" className="linkNav text-color-50 mr-4 p-2 rounded-tr-lg">Teams</Link>
+                    <Link to="/createDrive" className="linkNav bg-900 text-color-50 p-2 rounded-tr-lg">Create New Driver</Link>
                 </div>
 
 
