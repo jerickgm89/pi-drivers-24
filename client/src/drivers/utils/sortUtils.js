@@ -1,26 +1,34 @@
 export function sortDrivers(drivers, sortOrder) {
   let sortedDrivers = [...drivers];
-  if (sortOrder === 'name-asc') {
-    sortedDrivers.sort((a, b) => a.name?.localeCompare(b.name));
-  } else if (sortOrder === 'name-desc') {
-    sortedDrivers.sort((a, b) => b.name?.localeCompare(a.name));
-  } else if (sortOrder === 'birth-asc') {
-    sortedDrivers.sort((a, b) => {
+  
+  sortedDrivers.sort((a, b) => {
+    // Primero, maneja la ordenación por fecha de nacimiento
+    if (sortOrder === 'birth-asc' || sortOrder === 'birth-desc') {
       if (!a.date || !b.date) return a.name?.localeCompare(b.name);
       const [yearA, monthA, dayA] = a.date.split('-');
       const [yearB, monthB, dayB] = b.date.split('-');
-      const dateComparison = new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB);
-      return dateComparison === 0 ? a.name?.localeCompare(b.name) : dateComparison;
-    });
-  } else if (sortOrder === 'birth-desc') {
-    sortedDrivers.sort((a, b) => {
-      if (!a.date || !b.date) return b.name?.localeCompare(a.name);
-      const [yearA, monthA, dayA] = a.date.split('-');
-      const [yearB, monthB, dayB] = b.date.split('-');
-      const dateComparison = new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
-      return dateComparison === 0 ? b.name?.localeCompare(a.name) : dateComparison;
-    });
-  }
+      const dateComparison = sortOrder === 'birth-asc' 
+        ? new Date(yearA, monthA - 1, dayA) - new Date(yearB, monthB - 1, dayB)
+        : new Date(yearB, monthB - 1, dayB) - new Date(yearA, monthA - 1, dayA);
+      if (dateComparison !== 0) return dateComparison;
+    }
+
+    // Luego, maneja la ordenación por nombre
+    if (sortOrder === 'name-asc' || sortOrder === 'name-desc') {
+      return sortOrder === 'name-asc'
+        ? a.name?.localeCompare(b.name)
+        : b.name?.localeCompare(a.name);
+    }
+
+    // Si las fechas de nacimiento son iguales, ordena por nombre
+    if (a.date === b.date) {
+      if (sortOrder === 'name-asc' || sortOrder === 'birth-asc') {
+        return a.name?.localeCompare(b.name);
+      } else {
+        return b.name?.localeCompare(a.name);
+      }
+    }
+  });
 
   return sortedDrivers;
 }

@@ -1,29 +1,30 @@
 import { useState } from 'react';
 
-import { NavBar } from "../../components/navbar"
 import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery, useGetTeamsQuery } from '../../store/api';
 
-import { Card } from '../../components/card';
-import { Footer } from '../../components/footer';
-import { SearchAndSort } from '../../components/searchAndSort';
-
-import { sortDrivers } from '../utils/sortUtils';
-import { filterAndFormatDrivers } from '../utils/filterUtils';
+import { NavBar, Card, Footer, SearchAndSort, Pagination, SearchBar } from '../../components';
+import { filterForIDDrivers, sortDrivers } from '../utils/';
 
 export const DriversPage = () => {
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState('');
-  const [isSearchById, setIsSearchById] = useState(false);
   const [sortOrder, setSortOrder] = useState('');
 
   // Fetching
-  let query = isSearchById && search ? useGetIdDriverQuery(search) : 
-                search ? useGetNameDriverQuery(search) : 
-                useGetDriversQuery(page);
+  let query;
+  if(!search) {
+    query = useGetDriversQuery(page);
+  } else if (!isNaN(search)) {
+    query = useGetIdDriverQuery(search);
+  } else {
+    query = useGetNameDriverQuery(search);
+  }
+
+  let teamsQuery = useGetTeamsQuery();
 
   // Filtering
   let { data: drivers = [], isLoading } = query;
-  drivers = filterAndFormatDrivers(drivers, search);
+  drivers = filterForIDDrivers(drivers, search);
 
   // Sorting
   let sortedDrivers = sortDrivers(drivers, sortOrder);
@@ -31,19 +32,18 @@ export const DriversPage = () => {
   // Pagination
   const nextPage = () => {
     if (drivers.length < 9) return;
-    setPage(page + 1);
+    let nextPage = page + 1;
+    setPage(nextPage);
   }
   const prevPage = () => {
     if (page === 0) return;
-    setPage(page - 1);
+    let prevPage = page - 1;
+    setPage(prevPage);
   }
 
   // Handlers
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
-  }
-  const handleCheckboxChange = (event) => {
-    setIsSearchById(event.target.checked);
   }
 
   return (
@@ -56,16 +56,15 @@ export const DriversPage = () => {
         <h1 className="titleDriver">F1 Drivers 2024</h1>
 
         <SearchAndSort
-          handleCheckboxChange={handleCheckboxChange}
           handleSearchChange={handleSearchChange}
           setSortOrder={setSortOrder}
-          prevPage={prevPage}
-          nextPage={nextPage}
         />
+        <SearchBar handleSearchChange={handleSearchChange} />
+        <Pagination prevPage={prevPage} nextPage={nextPage} page={page} />
         <div className="reponsiveCard ">
           {
             isLoading ? (
-              <div class="lds-ripple"><div></div><div></div></div>
+              <div className="lds-ripple"><div></div><div></div></div>
             ) : (
               sortedDrivers.map((driver) => (
                 <Card 
