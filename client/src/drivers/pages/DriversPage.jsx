@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery } from '../../store/api';
+import { useGetDriversQuery, useGetIdDriverQuery, useGetNameDriverQuery, useGetAllDriversQuery } from '../../store/api';
 
 import { PageLayout } from '../../layout';
-import { NavBar, Card, Footer, Sort, Pagination, SearchBar } from '../../components';
+import { Card, Sort, Pagination, SearchBar } from '../../components';
 import { filterForIDDrivers, sortDrivers } from '../utils/';
 
 export const DriversPage = () => {
@@ -15,7 +15,7 @@ export const DriversPage = () => {
   let query;
   if(!search) {
     query = useGetDriversQuery(page);
-  } else if (!isNaN(search)) {
+  } else if (parseInt(search)) {
     query = useGetIdDriverQuery(search);
   } else {
     query = useGetNameDriverQuery(search);
@@ -23,6 +23,7 @@ export const DriversPage = () => {
 
   // Filtering
   let { data: drivers = [], isLoading } = query;
+  console.log(query);
   drivers = filterForIDDrivers(drivers, search);
 
 

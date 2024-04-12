@@ -1,0 +1,15 @@
+.teamsPage{
+    display: grid;
+    @include responsive('sm'){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    @include responsive('md'){
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+    @include responsive('lg'){
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2rem;
+    }
+}
