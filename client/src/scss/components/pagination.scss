@@ -1,0 +1,19 @@
+.paginationResponsive {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @include responsive-max('sm'){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        .prevIndicator{
+            display: none;
+        }
+        .nextIndicator{
+            display: none;
+        }
+
+    }
+}
