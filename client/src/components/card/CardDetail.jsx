@@ -19,24 +19,21 @@ export const CardDetail = ({id, image, name, surname, description, nationality, 
         <div className="text-left p-3">
           <h1 className="fadeInName text-3xl font-bold">{name} {surname}</h1>
           <h2 className="fadeInName text-3xl font-bold mb-3">Id: {id}</h2>
-          <table className="border-collapse">
-            <tr>
-              <th className="fadeInNationality text-xl">Country</th>
-              <td className="fadeInNationality text-xl font-normal">{nationality ? nationality : "Sin informacion"}</td>
-            </tr>
-            <tr>
-              <th className='fadeInDescription text-xl'>Biography</th>
-              <td className='fadeInDescription text-xl text-justify mt-2 mb-2'>{description ? description : "Sin informacion"}</td>
-            </tr>
-            <tr>
-              <th className='fadeInDate text-xl'>Date</th>
-              <td className='fadeInDate text-xl ont-normal mt-2 mb-2'>{date}</td>
-            </tr>
-            <tr>
-              <th className='fadeInTeams text-xl'>Teams </th>
-              <td className='fadeInTeams text-xl font-normal mt-2 mb-4'>{teams ? teams : "Sin informacion"}</td>
-            </tr>
-          </table>
+          
+          <div className="fadeIn" >
+                <h3 className="text-2xl font-bold">Country</h3>
+                <p className="text-xl font-normal">{nationality ? nationality : "Sin informacion"}</p>
+          </div>
+
+          <div className="fadeIn">
+                <h3 className="text-2xl font-bold">Biography</h3>
+                <p className="text-xl font-normal text-justify mt-2 mb-2">{description ? description : "Sin informacion"}</p>
+          </div>
+
+          <div className="fadeIn">
+                <h3 className="text-2xl font-bold">Teams</h3>
+                <p className="text-xl font-normal mt-2 mb-2">{teams ? teams : "Sin informacion"}</p>
+          </div>      
           <button className="fadeInButton btn btn-outline w-full mt-4" onClick={goBack}>Regresar</button>
         </div>
 

@@ -24,8 +24,6 @@
     }
 }
 
-
-
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
@@ -33,25 +31,6 @@
 
 .fadeIn{
     animation: fadeIn 1s ease-in-out;
-}
-.fadeInName {
-    animation: fadeIn 1s ease-in-out;
-}
-
-.fadeInNationality {
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-.fadeInDescription {
-    animation: fadeIn 2s ease-in-out;
-}
-
-.fadeInDate {
-    animation: fadeIn 2.5s ease-in-out;
-}
-
-.fadeInTeams {
-    animation: fadeIn 3s ease-in-out;
 }
 
 .fadeInButton {

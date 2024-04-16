@@ -4,7 +4,7 @@ import { TeamsPage } from '../page'
 export const TeamsRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<TeamsPage />} />
+      <Route path="*" element={<TeamsPage />} />
     </Routes>
   )
 }

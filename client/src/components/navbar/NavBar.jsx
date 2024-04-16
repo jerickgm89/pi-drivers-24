@@ -1,12 +1,14 @@
+import {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
 export const NavBar = () => {
 
+    const [showMenu, setShowMenu] = useState(false);
+
     return (
       <>
-        <nav className='bg-700 container p-3 fixed'>
-            <div className="flex justify-between text-color-50">
+        <nav className='navResponsive bg-700 container p-3 fixed'>
                 <div>
                     <svg width="100" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_1_57)">
@@ -25,17 +27,18 @@ export const NavBar = () => {
                     </svg>
                 </div>
 
-                <div className="text-xl font-medium">
+                <div className={`nav_items ${showMenu && "nav_open"}`}>
                     <Link to="/drivers" className="linkNav text-color-50 mr-4 p-2 rounded-tr-lg">Drivers</Link>
                     <Link to="/teams" className="linkNav text-color-50 mr-4 p-2 rounded-tr-lg">Teams</Link>
                     <Link to="/createDrive" className="linkNav bg-900 text-color-50 p-2 rounded-tr-lg">Create New Driver</Link>
                 </div>
-
-
-                <button className='hidden'>
+                <button 
+                    className='hamburguesaButton'
+                    onClick={() => setShowMenu(!showMenu)}
+                >
                     ☰
                 </button>
-            </div>
+
         </nav>
 
       </>

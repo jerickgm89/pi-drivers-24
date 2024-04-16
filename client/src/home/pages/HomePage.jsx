@@ -11,7 +11,7 @@ export const HomePage = () => {
   return (
     <>  
         <div className="grid place-items-center min-h-screen bodyHome">
-            <div className="p-20 border-900 rounded-tr-lg border-t-2 border-r-2 homeContainer">
+            <div className="border-900 rounded-tr-lg border-t-2 border-r-2 homeContainer">
                 <h1 className="text-center pb-4 textHome"> Bienvenido a Formula One</h1>
                 <button 
                   className="btn btn-outline w-full"

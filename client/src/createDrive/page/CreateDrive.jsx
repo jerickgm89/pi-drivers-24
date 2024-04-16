@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { usePostDriverMutation, useGetNameDriverQuery } from "../../store/api/driversApi"
 import { useForm } from "../../hooks/useForm"
 import { PageLayout } from "../../layout"
@@ -25,17 +26,19 @@ const formValidations = {
 }
 
 export const CreateDrive = () => {
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
   
   const [postDriver, {isLoading} ] = usePostDriverMutation();
-
-
   
   const { formState, name, surname, nationality, date, team, description, image, onInputChange,
           isFormValid, nameValid, surnameValid, nationalityValid, dateValid, teamsValid, descriptionValid, imageValid,
           onResetForm  } = useForm(formData, formValidations);
-
+  
   const { data: existingDriver } = useGetNameDriverQuery(name);
-  const isDriverExists = existingDriver && existingDriver.length > 0;
+  
+
+    const isDriverExists = existingDriver && existingDriver.length > 0;
 
 
   const handleSubmit = async(e) => {
@@ -44,6 +47,7 @@ export const CreateDrive = () => {
       alert('Driver already exists');
       return;
     }
+    setFormSubmitted(true);
     postDriver(formState);
     console.log(formState);
     onResetForm();
@@ -72,7 +76,7 @@ export const CreateDrive = () => {
               placeholder="Ej. Jorge"
               className='inputForm'
             />
-            {nameValid && <span className="error">{nameValid}</span>}
+            {nameValid && <span className="error">{nameValid}</span> || formSubmitted}
           </div>
 
           <div className='m-2'>

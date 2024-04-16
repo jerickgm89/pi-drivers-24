@@ -2,7 +2,7 @@ const { formatSendResponse } = require('../utils/formatSendResponse')
 const { fetchApi, fetchApiById, fetchApiByName } = require('../utils/fetchApi')
 const { getAllDrivers, getDriverById, getDriverByName, createDriver, updateDriver, deleteDriver } = require('../repositories/driversRepository')
 const { getTeamByName, createTeam } = require('../repositories/teamRepository')
-const { parse } = require('dotenv')
+
 
 // Servicio para obtener todos los drivers
 // Busca los drivers en la API y en la base de datos

@@ -1,26 +1,57 @@
-.linkNav {
-    text-decoration: none;
-    transition: all 0.3s;
-    &:hover {
-        background-color: $f1-azure-600;
+.navResponsive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    .nav_open{
+        transform: translateX(0%) !important;
     }
-    &:active {
-        background-color: $f1-azure-800;
+    .nav_items{
+        transition: all 0.5s;
+        @include responsive-max('sm'){
+            position: absolute;
+            top: 50px;
+            left: 0;
+            display:flex;
+            flex-direction: column;
+            background-color: $f1-azure-600;
+            width: 100%;
+            transform: translateX(-100%);
+        }
+
     }
+
+    .linkNav {
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        position: relative;
+        font-size: 1.2rem;
+        &:hover {
+            background-color: $f1-azure-600;
+        }
+
+    }
+
+    .hamburguesaButton{ 
+        display: none;
+        background-color: transparent;
+        border: none;
+        color: white; 
+        font-size: 2rem;  
+        font-weight: bold;  
+        transform-origin: 5px 0px;
+        @include responsive-max('sm'){
+            display: block;
+            transition: all 0.3s;
+        }
+    }
+
+
 }
 
-.searchNav{
-    border: none;
-    width: auto;
-    height: 30px;
-    &:focus {
-        outline: none;
-    }
-}
 
-.hamburguesaButton {
-    display: none;
-    @include responsive('md') {
-        display: block;
-    }
-}
+
+
+

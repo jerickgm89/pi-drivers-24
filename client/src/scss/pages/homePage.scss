@@ -4,14 +4,29 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+
+    @include responsive('xm') {
+        height: 50vh;
+        padding: 0.5rem;
+    }
 }
 
 .homeContainer {
     background-color: rgba(221, 37, 37, 0.5);
     backdrop-filter: blur(8px);
-    --webkit-backdrop-filter: blur(8px);    
+    --webkit-backdrop-filter: blur(8px);
+    padding: 1rem;    
 }
 
 .textHome {
     color: white;
+    @include responsive('xm') {
+        font-size: 1.5rem;
+    }
+    @include responsive('sm') {
+        font-size: 2.5rem;
+    }
+    @include responsive('md') {
+        font-size: 3rem;
+    }
 }
